@@ -68,3 +68,18 @@ UN-GIT-07
 
 ## Functional System Requirements
 
+SR-01 first init
+SR-01 UR-GIT-01: Given no recorded history, when git init, MiniGit shall create a repository using the given files
+
+SR-02 repeated init
+SR-02 UR-GIT-01/UR-GIT-08: Given a recorded history, when git init, MiniGit shall report back on a user error explaining that there is already a created repository
+
+SR-03 add one existing file
+SR-03 UR-GIT-05: Given existing file, when git add (existing.txt), MiniGit shall create a copy of (existing.txt) containing whatever, without staging any other files
+
+SR-04 add a missing file
+SR-04 UR-GIT-08/UR-GIT-09: Given missing file, when git add (missing.txt), MiniGit shall return an error message telling the user the file does not exist or could not be located within the current project files
+
+SR-05 status for one staged file
+SR-05 UR-GIT-03: Given status for staged file, when git status is used, MiniGit shall return with only one file in the staging area ready to be recorded for the next checkpoint while leaving the unmarked files out
+
