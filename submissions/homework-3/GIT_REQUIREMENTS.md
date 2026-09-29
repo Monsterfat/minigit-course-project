@@ -69,6 +69,7 @@ UN-GIT-07
 ## Functional System Requirements
 
 #SR-01 first init
+
 SR-01 UR-GIT-01: Given no recorded history, when git init, MiniGit shall create a repository using the given files
 
 #SR-02 repeated init
