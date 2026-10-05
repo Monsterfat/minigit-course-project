@@ -78,15 +78,25 @@ SR-02 UR-GIT-01/UR-GIT-08: Given a recorded history, when git init, MiniGit shal
 
 #SR-03 add one existing file
 
-SR-03 UR-GIT-05: Given existing file, when git add (existing.txt), MiniGit shall create a copy of (existing.txt) containing whatever, without staging any other files
+SR-03 UR-GIT-05: Given a target file folder containing multiple edited files, when git add<folder> is executed, MiniGit shall stage the one target file in the directory tree without affecting the other files in a directory.
 
 #SR-04 add a missing file
 
-SR-04 UR-GIT-08/UR-GIT-09: Given missing file, when git add (missing.txt), MiniGit shall return an error message telling the user the file does not exist or could not be located within the current project files
+SR-04 UR-GIT-08/UR-GIT-09: Given a file path that is outside the local project directory, when git add, MiniGit shall reject the command and output an error, while leaving the project state untouched
 
-#SR-05 status for one staged file
+#SR-05 status for one staged file / status
 
 SR-05 UR-GIT-03: Given status for staged file, when git status is used, MiniGit shall return with only one file in the staging area ready to be recorded for the next checkpoint while leaving the unmarked files out
+
+SR-05A (single file): Given an existing edited project file, when git status is executed, MiniGit shall display its status without listing unrelated project files
+
+SR-05B (excluding unrelated files): Given multiple edited filesi n the directory, when git status is run with a specific file, MiniGit shall isolate that speficic file and report on it
+
+SR-05C (Target file validity): Given a file path, when git status is ran, MiniGit shall check if the path is valid and return an error if it cannot find the path
+
+SR-05D (Editing staged file): Given a staged file has been deleted from working directory, when git status is executed, MiniGit shall report the file as missing or deleted without modifying the staging area
+
+SR-05E (Checkpoint): Given a file in the staging area, when git status, MiniGit shall report a clear message as to what file is in the staging area that is queued for the next checkpoint
 
 #SR-06 add single file
 
